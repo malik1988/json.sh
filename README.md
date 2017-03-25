@@ -10,8 +10,8 @@ Usage
 -------
 To use json.sh, you can simply run `json.sh` with a filename as an argument.
 Here's an example command and it's output:
-`sh json.sh example.json`
-`
+```$ sh json.sh example.json
+
 /animals
 /animals/pig
 /animals/pig/tail
@@ -23,15 +23,16 @@ Here's an example command and it's output:
 /animals/sheep/tail = short
 /animals/sheep/nose
 /animals/sheep/nose = ugly
-`
+```
 
 There are also a few useful arguments you should keep note of:
+
 | argument | description |
 | --- | --- |
-| `-v $string` | Only print variables with the name `$string` |
-| `-s $string` | Only print the value of the variable `$string` |
-| `-V $string` | Only print variables with the value `$string` |
-| `-o $string` | Only print the object `$string` |
+| `-v $string` | Only print variables with the name `$string`. |
+| `-s $string` | Only print the value of the variable `$string`. |
+| `-V $string` | Only print variables with the value `$string`. |
+| `-o $string` | Only print the object `$string`. |
 
 With `-v` and `-s`, for example, `$string` could be anything from `tail` to `/pig/tail` to `/animals/pig/tail`.
 Same syntax goes for `-o`. `-V` is the only odd one out-- it's `$string` needs to be a variable's value, like `adorable` from `/pig/nose`.
@@ -40,6 +41,6 @@ Same syntax goes for `-o`. `-V` is the only odd one out-- it's `$string` needs t
 
 Licensing
 -----------
-All of ST is released under the
+All of json.sh is released under the
 [ISC](https://opensource.org/licenses/ISC) license.
 
