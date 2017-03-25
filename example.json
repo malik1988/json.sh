@@ -1,0 +1,12 @@
+{
+	"animals": {
+		"pig": {
+			"tail": "curly",
+			"nose": "adorable"
+		},
+		"sheep": {
+			"tail": "short",
+			"nose": "ugly"
+		}
+	}
+}
