@@ -10,8 +10,8 @@ Usage
 -------
 To use json.sh, you can simply run `json.sh` with a filename as an argument.
 Here's an example command and it's output:
-```$ sh json.sh example.json
-
+```
+$ sh json.sh example.json
 /animals
 /animals/pig
 /animals/pig/tail
