@@ -66,7 +66,7 @@ do
                 endword
             fi
         ;;
-        \")
+        "\"")
             if [ $NEWWORD -eq 1 ]
             then
                 endword
@@ -98,4 +98,56 @@ do
 done < "$1"
 }
 
-json $1
+varmatch=0
+objmatch=0
+silmatch=0
+valmatch=0
+match=''
+arguments=''
+na=0
+for argument in $@
+do
+    case $argument in
+        -v)
+		na=1
+		varmatch=1
+		;;
+        -V)
+		na=1
+		valmatch=1
+		;;
+	-s)
+		na=1
+		silmatch=1
+		;;
+	-o)
+		na=1
+		objmatch=1
+		;;
+	*)
+		if [ $na -eq 1 ] && [ $objmatch -eq 1 ]
+		then
+			match="$argument\$"
+		elif [ $na -eq 1 ] && [ $varmatch -eq 1 ]
+		then
+			match="$argument\ ="
+		elif [ $na -eq 1 ] && [ $silmatch -eq 1 ]
+		then
+			match="$argument\ ="
+		elif [ $na -eq 1 ] && [ $valmatch -eq 1 ]
+		then
+			match="=\ $argument\$"
+		else
+			file="$argument"
+		fi
+		na=0
+		;;
+esac
+done
+
+if [ $silmatch -eq 1 ]
+then
+    json $file | grep "$match" | sed 's/.*= //'
+else
+    json $file | grep "$match"
+fi
