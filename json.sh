@@ -1,4 +1,4 @@
-#!/bin/sh -ex
+#!/bin/sh
 # WIP JSON parser
 
 JGROUPS=''
